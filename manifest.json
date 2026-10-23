@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "New Logger",
+  "version": "0.3.0",
+  "description": "DOM tree inspector with property/text search, recursive fold controls, and memory-only logging.",
+  "permissions": [
+    "tabs",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "New Logger",
+    "default_popup": "popup.html"
+  }
+}
